@@ -22,13 +22,16 @@ function setBubble(range, bubble) {
   bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
 }
 
-var requestOptions = {
-  method: 'GET',
-  redirect: 'follow'
-};
+function fetchDoggoButton() {
+  $('#getDoggos button').click(function(event) {
+    event.preventDefault()
+    let numberOfDoggos = $('.range').val()
+    fetchDogPhotos(numberOfDoggos);
+  })
+}
 
 function fetchDogPhotos(numberOf) {
-  fetch(`https://dog.ceo/api/breeds/image/random/${numberOf}`, requestOptions)
+  fetch(`https://dog.ceo/api/breeds/image/random/${numberOf}`)
     .then(response => response.json())
     .then(result => displayDogPictures(result))
     .catch(error => console.log('error', error));
@@ -45,12 +48,29 @@ function displayDogPictures(result) {
   $(".dogs").html(answerThing);
 }
 
-function handleButton() {
-  $('button').click(function(event) {
+function fetchDoggoByBreedButton() {
+  $('#getDoggoByBreed button').click(function(event) {
     event.preventDefault()
-    let numberOfDoggos = $('.range').val()
-    fetchDogPhotos(numberOfDoggos);
+    let breed = $('.text').val()
+    fetchDogByBreed(breed);
   })
 }
 
-handleButton()
+function fetchDogByBreed(breed) {
+  fetch(`https://dog.ceo/api/breed/${breed}/images/random`)
+    .then(response => response.json())
+    .then(result => displayDogBreedPicture(result))
+    .catch(error => handleWrongBreed(error));
+}
+
+function displayDogBreedPicture(result) {
+  $(".dogs").html(`<div class="dogPhoto"> <img src="${result.message}"alt="">
+  </div>`);
+}
+
+function handleWrongBreed(error) {
+  alert(error)
+}
+
+fetchDoggoByBreedButton()
+fetchDoggoButton()
