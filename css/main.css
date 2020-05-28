@@ -1,0 +1,77 @@
+html {
+  font-family: 'Raleway', sans-serif;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+header h1 {
+  padding: 0px 15px;
+  margin: 0px;
+}
+
+main {
+  margin: 0px;
+  text-align: center;
+}
+
+.dogs {
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.dogPhoto {
+  width: 150px;
+  height: 200px;
+  border-style: solid;
+  border-width: thin;
+  margin: 10px;
+  padding: 10px;
+  font-family: 'Permanent Marker', cursive;
+}
+
+.dogPhoto img {
+  float: left;
+  background-size: cover;
+  width: 150px;
+  height: 150px;
+}
+
+.range-wrap {
+  position: relative;
+  margin: 0 auto 3rem;
+  max-width: 400px;
+}
+.range {
+  width: 100%;
+}
+.bubble {
+  background: black;
+  color: white;
+  padding: 4px 12px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.bubble::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: black;
+  top: -1px;
+  left: 50%;
+}
+
+body {
+  margin: 2rem;
+}
