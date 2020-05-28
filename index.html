@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
   <meta charset="utf-8">
   <title>dog.io</title>
@@ -10,23 +11,29 @@
   <link rel="stylesheet" href="css/main.css">
   <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Raleway:wght@100&display=swap" rel="stylesheet">
 </head>
-  <body>
-    <header>
-      <img src="img/dog.png" alt="">
-      <h1>dog.io</h1>
-    </header>
-    <main>
-      <h3>How many doggos do you need?</h3>
+
+<body>
+  <header>
+    <img src="img/dog.png" alt="">
+    <h1>dog.io</h1>
+  </header>
+  <main>
+    <h3>How many doggos do you need?</h3>
+    <form action="" method="get" id="getDoggos">
       <div class="range-wrap">
-        <input type="range" class="range" min="0" max="50">
+        <input type="range" class="range" value="3" min="0" max="50">
         <output class="bubble"></output>
       </div>
-      <div class="dogs">
-        <p>hello</p>
-      </div>
-    </main>
-  </body>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
-    <script src="js/main.js"></script>
+      <button type="button" name="getDoggos">Get Doggos</button>
+    </form>
+    <div class="dogs">
+    </div>
+  </main>
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script>
+  window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')
+</script>
+<script src="js/main.js"></script>
+
 </html>

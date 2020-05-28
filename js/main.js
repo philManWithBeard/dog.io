@@ -17,19 +17,15 @@ function setBubble(range, bubble) {
   const max = range.max ? range.max : 100;
   const newVal = Number(((val - min) * 100) / (max - min));
   bubble.innerHTML = val;
-  fetchDogPhotos(val);
 
   // Sorta magic numbers based on size of the native UI thumb
   bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
 }
 
-
 var requestOptions = {
   method: 'GET',
   redirect: 'follow'
 };
-
-
 
 function fetchDogPhotos(numberOf) {
   fetch(`https://dog.ceo/api/breeds/image/random/${numberOf}`, requestOptions)
@@ -47,5 +43,12 @@ function displayDogPictures(result) {
   $(".dogs").html(answerThing);
 }
 
+function handleButton() {
+  $('button').click(function(event) {
+    event.preventDefault()
+    let numberOfDoggos = $('.range').val()
+    fetchDogPhotos(numberOfDoggos);
+  })
+}
 
-$(fetchDogPhotos(10));
+handleButton()
