@@ -35,6 +35,8 @@ function fetchDogPhotos(numberOf) {
 }
 
 function displayDogPictures(result) {
+  let log = result.message.toString();
+  console.log(log)
   let answerThing = result.message.reduce((result, item, index) => {
     result += `<div class="dogPhoto"> <img src="${item}"alt="">
     </div>`;
