@@ -23,7 +23,7 @@ function setBubble(range, bubble) {
 }
 
 function fetchDoggoButton() {
-  $('#getDoggos button').click(function(event) {
+  $('#getDoggos').submit(function(event) {
     event.preventDefault()
     let numberOfDoggos = $('.range').val()
     fetchDogPhotos(numberOfDoggos);
