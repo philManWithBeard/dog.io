@@ -49,7 +49,7 @@ function displayDogPictures(result) {
 }
 
 function fetchDoggoByBreedButton() {
-  $('#getDoggoByBreed button').click(function(event) {
+  $('#getDoggoByBreed').submit(function(event) {
     event.preventDefault()
     let breed = $('.text').val()
     fetchDogByBreed(breed);
@@ -58,7 +58,10 @@ function fetchDoggoByBreedButton() {
 
 function fetchDogByBreed(breed) {
   fetch(`https://dog.ceo/api/breed/${breed}/images/random`)
-    .then(response => response.json())
+    .then(response => {
+    if(response.ok) return response.json()
+    return response.json().then(err => Promise.reject(err))
+    })
     .then(result => displayDogBreedPicture(result))
     .catch(error => handleWrongBreed(error));
 }
@@ -69,7 +72,7 @@ function displayDogBreedPicture(result) {
 }
 
 function handleWrongBreed(error) {
-  alert(error)
+  alert(error.message)
 }
 
 fetchDoggoByBreedButton()
